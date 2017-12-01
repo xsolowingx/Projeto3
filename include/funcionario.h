@@ -12,7 +12,7 @@
 
 class Funcionario
 {
-private:
+protected:
 	std::string id;
 	std::string nome;
 	std::string cpf;
@@ -20,12 +20,13 @@ private:
 	std::string tipo_sanguineo;
 	char fatorRH;
 	std::string especialidade;
+	std::string funcao;
 
 public:
 	/*=====Construtores e Destrutor=====*/
 	Funcionario();
 	Funcionario(std::string _id, std::string _nome, std::string _cpf, int _idade, 
-				std::string _tipo_sanguineo, char _fatorRH, std::string _especialidade);
+				std::string _tipo_sanguineo, char _fatorRH, std::string _especialidade,std::string _funcao);
 	~Funcionario();
 	/*=====Setters=====*/
 	void setID(std::string _id);
@@ -44,9 +45,10 @@ public:
 	std::string getTipoSanguineo();
 	char getFatorRH();
 	std::string getEspecialidade();
+	std::string getFuncao();
 
 	/*=====Método print=====*/
-	std::ostream &print(std::ostream &o) const = 0;
+	virtual std::ostream &print(std::ostream &o) const = 0;
 
 	/*=====Sobrecarga do Operador "<<"=====*/
 	friend std::ostream &operator<<(std::ostream &o,Funcionario &f);

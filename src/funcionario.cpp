@@ -11,8 +11,8 @@
 	Funcionario::Funcionario() {}
 
 	Funcionario::Funcionario(std::string _id, std::string _nome, std::string _cpf, int _idade, 
-				std::string _tipo_sanguineo, char _fatorRH, std::string _especialidade) : id(_id), nome(_nome),
-	cpf(_cpf), idade(_idade), tipo_sanguineo(_tipo_sanguineo), fatorRH(_fatorRH), especialidade(_especialidade) {}
+				std::string _tipo_sanguineo, char _fatorRH, std::string _especialidade, std::string _funcao) : id(_id), nome(_nome),
+	cpf(_cpf), idade(_idade), tipo_sanguineo(_tipo_sanguineo), fatorRH(_fatorRH), especialidade(_especialidade), funcao(_funcao) {}
 	
 	Funcionario::~Funcionario() {}
 
@@ -86,6 +86,11 @@ char Funcionario::getFatorRH()
 std::string Funcionario::getEspecialidade()
 {
 	return this->especialidade;
+}
+
+std::string Funcionario::getFuncao()
+{
+	return this->funcao;
 }
 
 std::ostream &operator<<(std::ostream &o,Funcionario &f)

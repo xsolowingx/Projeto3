@@ -18,6 +18,31 @@ OBJ_DIR = ./build
 DOC_DIR = ./doc
 LIB_DIR = ./lib
 #variável objeto
+OBJETOS_DYN = $(OBJ_DIR)/funcionario.o $(OBJ_DIR)/veterinario.o $(OBJ_DIR)/tratador.o\
+$(OBJ_DIR)/animal.o $(OBJ_DIR)/anfibio.o 
 
 #Garante que os alvos desta lista nao sejam confundidos com arquivos de mesmo nome
 .PHONY: all clean distclean doxy
+
+Petfera.so: $(OBJETOS_DYN)
+	@echo "====================="
+	@echo "Ligando o alvo $@"
+	@echo "=========*-*========="
+	$(CC) -shared $(DYNAMIC) $(CFLAGS) $^ -o $(LIB_DIR)/$@
+	@echo "+++ [Biblioteca dinamica $@ criada em $(LIB_DIR)] +++"
+	@echo "=========*-*========="  
+
+$(OBJ_DIR)/funcionario.o:	$(SRC_DIR)/funcionario.cpp $(INC_DIR)/funcionario.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/veterinario.o:	$(SRC_DIR)/veterinario.cpp $(INC_DIR)/veterinario.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/tratador.o:	$(SRC_DIR)/tratador.cpp $(INC_DIR)/tratador.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/animal.o:	$(SRC_DIR)/animal.cpp $(INC_DIR)/animal.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/anfibio.o:	$(SRC_DIR)/anfibio.cpp $(INC_DIR)/anfibio.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
