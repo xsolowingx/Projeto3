@@ -19,7 +19,10 @@ DOC_DIR = ./doc
 LIB_DIR = ./lib
 #variável objeto
 OBJETOS_DYN = $(OBJ_DIR)/funcionario.o $(OBJ_DIR)/veterinario.o $(OBJ_DIR)/tratador.o\
-$(OBJ_DIR)/animal.o $(OBJ_DIR)/anfibio.o 
+$(OBJ_DIR)/animal.o $(OBJ_DIR)/anfibio.o $(OBJ_DIR)/mamifero.o $(OBJ_DIR)/reptil.o\
+$(OBJ_DIR)/ave.o $(OBJ_DIR)/animalSilvestre.o $(OBJ_DIR)/exotico.o
+
+#$(OBJ_DIR)/ 
 
 #Garante que os alvos desta lista nao sejam confundidos com arquivos de mesmo nome
 .PHONY: all clean distclean doxy
@@ -46,3 +49,21 @@ $(OBJ_DIR)/animal.o:	$(SRC_DIR)/animal.cpp $(INC_DIR)/animal.h
 
 $(OBJ_DIR)/anfibio.o:	$(SRC_DIR)/anfibio.cpp $(INC_DIR)/anfibio.h
 	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/mamifero.o:	$(SRC_DIR)/mamifero.cpp $(INC_DIR)/mamifero.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/reptil.o:	$(SRC_DIR)/reptil.cpp $(INC_DIR)/reptil.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/ave.o:	$(SRC_DIR)/ave.cpp $(INC_DIR)/ave.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/animalSilvestre.o:	$(SRC_DIR)/animalSilvestre.cpp $(INC_DIR)/animalSilvestre.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/exotico.o:	$(SRC_DIR)/exotico.cpp $(INC_DIR)/exotico.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -rf $(OBJ_DIR)/*.o

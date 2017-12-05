@@ -48,7 +48,7 @@ public:
 	std::string getFuncao();
 
 	/*=====Método print=====*/
-	virtual std::ostream &print(std::ostream &o) const = 0;
+	virtual std::ostream &print(std::ostream &o) = 0;
 
 	/*=====Sobrecarga do Operador "<<"=====*/
 	friend std::ostream &operator<<(std::ostream &o,Funcionario &f);

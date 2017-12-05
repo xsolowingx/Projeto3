@@ -30,7 +30,7 @@ std::string Anfibio::getUltimaMuda()
 }
 
 /*=====Método print para "jogar"os dados da classe num arquivo=====*/
-std::ostream& Anfibio::print(std::ostream &o) const
+std::ostream& Anfibio::print(std::ostream &o)
 {
 	o << this->id << ";" << this->classe << ";" << this->nome_especie << ";" << this->nome_cientifico
 	  << ";" << this->sexo << ";" << this->tamanho << ";" << this->dieta << ";" << this->getVeterinario()

@@ -16,7 +16,7 @@ Veterinario::~Veterinario() {}
 
 /*=====_=====*/
 
-std::ostream& Veterinario::print(std::ostream &o) const
+std::ostream& Veterinario::print(std::ostream &o)
 {
 	o << this->id << ";" << this->nome << ";" << this->cpf << ";" << this->idade
 	  << ";" << this->tipo_sanguineo << ";" << this->fatorRH << ";" << this->especialidade

@@ -4,7 +4,7 @@
 
 class Anfibio: public Animal
 {
-private:
+protected:
 	int mudas_ja_realizadas;
 	std::string ultima_muda;
 
@@ -22,7 +22,7 @@ public:
 	int getMudasJaRealizadas();
 	std::string getUltimaMuda();
 	
-	std::ostream& print(std::ostream &o) const;
+	std::ostream& print(std::ostream &o);
 	
 };
 

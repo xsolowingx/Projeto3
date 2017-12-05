@@ -11,7 +11,7 @@ Tratador::Tratador() {}
 
 Tratador::~Tratador() {}
 
-std::ostream &Tratador::print(std::ostream &o) const
+std::ostream &Tratador::print(std::ostream &o)
 {
 	o << this->id << ";" << this->nome << ";" << this->cpf << ";" << this->idade
 	  << ";" << this->tipo_sanguineo << ";" << this->fatorRH << ";" << this->especialidade

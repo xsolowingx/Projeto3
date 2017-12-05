@@ -11,7 +11,7 @@ public:
 	Veterinario(Veterinario &v);
 	Veterinario();
 	~Veterinario();
-	std::ostream& print(std::ostream &o) const;
+	std::ostream& print(std::ostream &o);
 	Veterinario& operator =(Veterinario &v);
 	friend std::ostream& operator <<(std::ostream &o,Veterinario &v);
 };

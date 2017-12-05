@@ -10,7 +10,7 @@ public:
 	Tratador(Tratador &t);
 	Tratador();
 	~Tratador();
-	std::ostream &print(std::ostream &o) const;
+	std::ostream &print(std::ostream &o);
 	Tratador& operator =(Tratador &t);
 	friend std::ostream& operator <<(std::ostream &o,Tratador &t);
 };

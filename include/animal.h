@@ -33,7 +33,7 @@ public:
 	std::string getTratador();
 	std::string getClasse();
 
-	virtual std::ostream& print(std::ostream &o) const = 0;
+	virtual std::ostream& print(std::ostream &o) = 0;
 
 	friend std::ostream& operator <<(std::ostream &o,Animal &a);
 };
