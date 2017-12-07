@@ -10,8 +10,8 @@
 /*=====Construtores e Destrutor=====*/
 	Funcionario::Funcionario() {}
 
-	Funcionario::Funcionario(std::string _id, std::string _nome, std::string _cpf, int _idade, 
-				std::string _tipo_sanguineo, char _fatorRH, std::string _especialidade, std::string _funcao) : id(_id), nome(_nome),
+	Funcionario::Funcionario(std::string _id, std::string _nome, std::string _cpf, std::string _idade, 
+	std::string _tipo_sanguineo, std::string _fatorRH, std::string _especialidade, std::string _funcao) : id(_id), nome(_nome),
 	cpf(_cpf), idade(_idade), tipo_sanguineo(_tipo_sanguineo), fatorRH(_fatorRH), especialidade(_especialidade), funcao(_funcao) {}
 	
 	Funcionario::~Funcionario() {}
@@ -32,7 +32,7 @@ void Funcionario::setCPF(std::string _cpf)
 	this->cpf = _cpf;
 }
 
-void Funcionario::setIdade(int _idade)
+void Funcionario::setIdade(std::string _idade)
 {
 	this->idade = _idade;
 }
@@ -42,7 +42,7 @@ void Funcionario::setTipoSanguineo(std::string _tipo_sanguineo)
 	this->tipo_sanguineo = _tipo_sanguineo;
 }
 
-void Funcionario::setFatorRH(char _fatorRH)
+void Funcionario::setFatorRH(std::string _fatorRH)
 {
 	this->fatorRH = _fatorRH;
 }
@@ -68,7 +68,7 @@ std::string Funcionario::getCPF()
 	return this->cpf;
 }
 
-int Funcionario::getIdade()
+std::string Funcionario::getIdade()
 {
 	return this->idade;
 }
@@ -78,7 +78,7 @@ std::string Funcionario::getTipoSanguineo()
 	return this->tipo_sanguineo;
 }
 
-char Funcionario::getFatorRH()
+std::string Funcionario::getFatorRH()
 {
 	return this->fatorRH;
 }
@@ -93,7 +93,12 @@ std::string Funcionario::getFuncao()
 	return this->funcao;
 }
 
-std::ostream &operator<<(std::ostream &o,Funcionario &f)
+std::istream& operator>>(std::istream &i,Funcionario &f)
+{
+	return f.scan(i);
+}
+
+std::ostream& operator<<(std::ostream &o,Funcionario &f)
 {
 	return f.print(o);
 }

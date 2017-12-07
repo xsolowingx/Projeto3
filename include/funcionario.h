@@ -9,6 +9,7 @@
 #define _FUNCIONARIO_H
 #include <string>
 #include <ostream>
+#include <istream>
 
 class Funcionario
 {
@@ -16,43 +17,45 @@ protected:
 	std::string id;
 	std::string nome;
 	std::string cpf;
-	int idade;
+	std::string idade;
 	std::string tipo_sanguineo;
-	char fatorRH;
+	std::string fatorRH;
 	std::string especialidade;
 	std::string funcao;
 
 public:
 	/*=====Construtores e Destrutor=====*/
 	Funcionario();
-	Funcionario(std::string _id, std::string _nome, std::string _cpf, int _idade, 
-				std::string _tipo_sanguineo, char _fatorRH, std::string _especialidade,std::string _funcao);
+	Funcionario(std::string _id, std::string _nome, std::string _cpf, std::string _idade, 
+				std::string _tipo_sanguineo, std::string _fatorRH, std::string _especialidade,std::string _funcao);
 	~Funcionario();
 	/*=====Setters=====*/
 	void setID(std::string _id);
 	void setNome(std::string _nome);
 	void setCPF(std::string _cpf);
-	void setIdade(int _idade);
+	void setIdade(std::string _idade);
 	void setTipoSanguineo(std::string _tipo_sanguineo);
-	void setFatorRH(char _fatorRH);
+	void setFatorRH(std::string _fatorRH);
 	void setEspecialidade(std::string _especialidade);
 
 	/*=====Getters=====*/
 	std::string getID();
 	std::string getNome();
 	std::string getCPF();
-	int getIdade();
+	std::string getIdade();
 	std::string getTipoSanguineo();
-	char getFatorRH();
+	std::string getFatorRH();
 	std::string getEspecialidade();
 	std::string getFuncao();
 
-	/*=====Método print=====*/
-	virtual std::ostream &print(std::ostream &o) = 0;
+	/*=====Métodos downcast=====*/
+	virtual std::ostream& print(std::ostream &o) = 0;
+	virtual std::istream& scan(std::istream &i) = 0;
 
-	/*=====Sobrecarga do Operador "<<"=====*/
-	friend std::ostream &operator<<(std::ostream &o,Funcionario &f);
+	/*=====Sobrecarga dos Operadores =====*/
+	friend std::istream& operator >>(std::istream &i,Funcionario &f);
+	
+	friend std::ostream& operator <<(std::ostream &o,Funcionario &f);
 };
-
 
 #endif

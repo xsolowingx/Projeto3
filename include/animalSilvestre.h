@@ -16,7 +16,7 @@ public:
 	void setPermissao(std::string _permission);
 
 
-	std::string getPermissao();
+	virtual std::string getPermissao() const = 0;
 
 };
 

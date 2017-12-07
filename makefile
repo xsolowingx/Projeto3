@@ -20,18 +20,23 @@ LIB_DIR = ./lib
 #variável objeto
 OBJETOS_DYN = $(OBJ_DIR)/funcionario.o $(OBJ_DIR)/veterinario.o $(OBJ_DIR)/tratador.o\
 $(OBJ_DIR)/animal.o $(OBJ_DIR)/anfibio.o $(OBJ_DIR)/mamifero.o $(OBJ_DIR)/reptil.o\
-$(OBJ_DIR)/ave.o $(OBJ_DIR)/animalSilvestre.o $(OBJ_DIR)/exotico.o
+$(OBJ_DIR)/ave.o $(OBJ_DIR)/animalSilvestre.o $(OBJ_DIR)/exotico.o $(OBJ_DIR)/nativo.o\
+$(OBJ_DIR)/aveNativa.o $(OBJ_DIR)/aveExotica.o
+OBJETOS_PROGRAMA = $(OBJ_DIR)/main.o $(OBJ_DIR)/excecoes.o
 
 #$(OBJ_DIR)/ 
 
 #Garante que os alvos desta lista nao sejam confundidos com arquivos de mesmo nome
 .PHONY: all clean distclean doxy
+all:	Petfera.so Pet_fera
 
+#target para criar a biblioteca Petfera.so
 Petfera.so: $(OBJETOS_DYN)
 	@echo "====================="
 	@echo "Ligando o alvo $@"
 	@echo "=========*-*========="
 	$(CC) -shared $(DYNAMIC) $(CFLAGS) $^ -o $(LIB_DIR)/$@
+	@echo ""
 	@echo "+++ [Biblioteca dinamica $@ criada em $(LIB_DIR)] +++"
 	@echo "=========*-*========="  
 
@@ -64,6 +69,30 @@ $(OBJ_DIR)/animalSilvestre.o:	$(SRC_DIR)/animalSilvestre.cpp $(INC_DIR)/animalSi
 
 $(OBJ_DIR)/exotico.o:	$(SRC_DIR)/exotico.cpp $(INC_DIR)/exotico.h
 	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/nativo.o:	$(SRC_DIR)/nativo.cpp $(INC_DIR)/nativo.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/aveNativa.o:	$(SRC_DIR)/aveNativa.cpp $(INC_DIR)/aveNativa.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+$(OBJ_DIR)/aveExotica.o:	$(SRC_DIR)/aveExotica.cpp $(INC_DIR)/aveExotica.h
+	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
+
+#target da Pet_fera
+Pet_fera:	$(OBJETOS_PROGRAMA)	
+	@echo "====================="
+	@echo "Ligando o alvo $@"
+	@echo "=========*-*========="
+	$(CC) $(CFLAGS) $^ -o $(BIN_DIR)/$@ 
+	@echo "+++ [programa $@ criado em $(BIN_DIR)] +++"
+	@echo "=========*-*========="  
+
+$(OBJ_DIR)/main.o:	$(SRC_DIR)/main.cpp $(INC_DIR)/classes.h
+	$(CC) -c $(CFLAGS) $< -o $@	
+
+$(OBJ_DIR)/excecoes.o:	$(SRC_DIR)/excecoes.cpp $(INC_DIR)/excecoes.h
+	$(CC) -c $(CFLAGS) $< -o $@	
 
 clean:
 	rm -rf $(OBJ_DIR)/*.o

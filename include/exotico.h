@@ -11,8 +11,9 @@ public:
 	Exotico();
 	~Exotico();
 
-	std::string getPaisDeOrigem();
-	
+	virtual std::string getPaisDeOrigem() const = 0;
+
+	virtual std::string getPermissao() const = 0;
 };
 
 

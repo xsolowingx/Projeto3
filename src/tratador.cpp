@@ -1,7 +1,7 @@
 #include "tratador.h"
 
-Tratador::Tratador(std::string _id, std::string _nome, std::string _cpf, int _idade, 
-				std::string _tipo_sanguineo, char _fatorRH, std::string _especialidade,std::string _funcao):
+Tratador::Tratador(std::string _id, std::string _nome, std::string _cpf, std::string _idade, 
+				std::string _tipo_sanguineo, std::string _fatorRH, std::string _especialidade,std::string _funcao):
 				Funcionario(_id,_nome,_cpf,_idade,_tipo_sanguineo,_fatorRH,_especialidade,_funcao) {}
 
 Tratador::Tratador(Tratador &t):
@@ -33,6 +33,22 @@ Tratador& Tratador::operator =(Tratador &t)
 	this->funcao = t.getFuncao();
 
 	return *this;
+}
+
+std::istream& Tratador::scan(std::istream &i)
+{
+	if(std::getline(i,this->id,';'))
+	{
+		std::getline(i,this->nome,';');
+		std::getline(i,this->cpf,';');
+		std::getline(i,this->idade,';');
+		std::getline(i,this->tipo_sanguineo,';');
+		std::getline(i,this->fatorRH,';');
+		std::getline(i,this->especialidade,';');
+		std::getline(i,this->funcao,'\n');
+	}
+
+	return i;
 }
 
 /*=====Sobrecarga do operador "<<" para poder dizer qual Tratador está cuidando daquele animal.=====*/

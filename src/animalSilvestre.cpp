@@ -10,8 +10,3 @@ void AnimalSilvestre::setPermissao(std::string _permission)
 {
 	this->permissao_ibama = _permission;
 }
-
-std::string AnimalSilvestre::getPermissao()
-{
-	return this->permissao_ibama;
-}
