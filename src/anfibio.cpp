@@ -1,3 +1,10 @@
+/**
+ * @since 30/11/2017
+ * @file anfibio.cpp
+ * @brief arquivo que contém as implementações da classe Anfibio
+ * @author Matheus de Jesus Leandro de Medeiros
+ * @date 08/12/17
+ */
 #include "anfibio.h"
 
 /*=====Construtores e destrutor=====*/

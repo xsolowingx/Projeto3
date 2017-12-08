@@ -1,5 +1,13 @@
+/**
+ * @since 30/11/2017
+ * @file tratador.cpp
+ * @brief arquivo que contém as implementações da classe Tratador
+ * @author Matheus de Jesus Leandro de Medeiros
+ * @date 08/12/17
+ */
 #include "tratador.h"
 
+/*=====Construtores e Destrutor=====*/
 Tratador::Tratador(std::string _id, std::string _nome, std::string _cpf, std::string _idade, 
 				std::string _tipo_sanguineo, std::string _fatorRH, std::string _especialidade,std::string _funcao):
 				Funcionario(_id,_nome,_cpf,_idade,_tipo_sanguineo,_fatorRH,_especialidade,_funcao) {}
@@ -11,28 +19,13 @@ Tratador::Tratador() {}
 
 Tratador::~Tratador() {}
 
+/*=====Métodos de manipulação de arquivo=====*/
 std::ostream &Tratador::print(std::ostream &o)
 {
 	o << this->id << ";" << this->nome << ";" << this->cpf << ";" << this->idade
 	  << ";" << this->tipo_sanguineo << ";" << this->fatorRH << ";" << this->especialidade
 	  << ";" << this->funcao << ";" << std::endl;
 	return o;
-}
-
-/*=====_=====*/
-
-Tratador& Tratador::operator =(Tratador &t)
-{
-	this->id = t.getID();
-	this->nome = t.getNome();
-	this->cpf = t.getCPF();
-	this->idade = t.getIdade();
-	this->tipo_sanguineo = t.getTipoSanguineo();
-	this->fatorRH = t.getFatorRH();
-	this->especialidade = t.getEspecialidade();
-	this->funcao = t.getFuncao();
-
-	return *this;
 }
 
 std::istream& Tratador::scan(std::istream &i)
@@ -51,8 +44,22 @@ std::istream& Tratador::scan(std::istream &i)
 	return i;
 }
 
-/*=====Sobrecarga do operador "<<" para poder dizer qual Tratador está cuidando daquele animal.=====*/
+/*=====Sobrecarga do operador "="=====*/
+Tratador& Tratador::operator =(Tratador &t)
+{
+	this->id = t.getID();
+	this->nome = t.getNome();
+	this->cpf = t.getCPF();
+	this->idade = t.getIdade();
+	this->tipo_sanguineo = t.getTipoSanguineo();
+	this->fatorRH = t.getFatorRH();
+	this->especialidade = t.getEspecialidade();
+	this->funcao = t.getFuncao();
 
+	return *this;
+}
+
+/*=====Sobrecarga do operador "<<" para poder dizer qual Tratador está cuidando daquele animal.=====*/
 std::ostream& operator <<(std::ostream &o,Tratador &t)
 {
 	o << "Este animal esta sobre os cuidados do Tratador: " << t.getID() << std::endl

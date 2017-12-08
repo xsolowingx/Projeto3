@@ -1,3 +1,10 @@
+/**
+ * @since 30/11/2017
+ * @file main.cpp
+ * @brief arquivo principal do Petfera
+ * @author Matheus de Jesus Leandro de Medeiros
+ * @date 08/12/17
+ */
 #include "classes.h"
 #include "funcionario.h"
 #include <iostream>
@@ -20,6 +27,7 @@ int main(void)
 	catch(ErroAoAbrirArquivo &ex)
 	{
 		std::cout << ex.what() << "animais.csv" << std::endl;
+		return -1;
 	}
 
 	try
@@ -30,18 +38,50 @@ int main(void)
 	catch(ErroAoAbrirArquivo &ex)
 	{
 		std::cout << ex.what() << "funcionarios.csv" << std::endl;
+		return -1;
 	}
 
-	Tratador funcs;	
-/*
-	std::string asb;
+	std::vector<std::shared_ptr<Funcionario>> funcs;
 
-	while(std::getline(ler_dados_funcionariosF,asb))
-	{	
-		funcs.setNome(asb);
-		std::cout << funcs.getNome() << std::endl;
-		std::cout << asb << std::endl;
-	}
-*/
 	return 0;
+}
+
+bool lerFuncionarios(std::ifstream ifs, std::vector<std::shared_ptr<Funcionario>> funcs);
+bool lerFuncionarios(std::ifstream ifs, std::vector<std::shared_ptr<Funcionario>> funcs)
+{
+	std::string _id,_nome,_cpf,_idade,_tipo_sanguineo,_fatorRH,_especialidade,_funcao;
+
+	try
+	{	
+		if(std::getline(ifs,_id,';') )
+		{
+			std::getline(ifs,_cpf,';');
+			std::getline(ifs,_idade,';');
+			std::getline(ifs,_tipo_sanguineo,';');
+			std::getline(ifs,_fatorRH,';');
+			std::getline(ifs,_especialidade,';');
+			std::getline(ifs,_funcao,'\n');
+		}
+
+		else
+			throw ErroAoTentarLerDados();
+	}
+	catch(ErroAoTentarLerDados &ex)
+	{
+		std::cout << ex.what() << "funcionarios" << std::endl;
+		return false;
+	}
+
+	if( (_funcao == "Tratador") || (_funcao == "tratador") )
+	{
+		funcs.push_back(std::make_shared<Tratador>(_id,_nome,_cpf,_idade,_tipo_sanguineo,_fatorRH,_especialidade,_funcao) );
+		return true;
+	}
+
+	if( (_funcao == "Veterinario") || (_funcao == "veterinario") )
+	{
+		funcs.push_back(std::make_shared<Veterinario>(_id,_nome,_cpf,_idade,_tipo_sanguineo,_fatorRH,_especialidade,_funcao) );
+		return true;
+	}
+	return false;
 }

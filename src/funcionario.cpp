@@ -3,7 +3,7 @@
  * @file funcionario.cpp
  * @brief arquivo que contém as implementações da classe Funcionario
  * @author Matheus de Jesus Leandro de Medeiros
- * @date 01/12/17
+ * @date 08/12/17
  */
 #include "funcionario.h"
 
@@ -93,6 +93,7 @@ std::string Funcionario::getFuncao()
 	return this->funcao;
 }
 
+/*=====Sobrecarga dos operadores=====*/
 std::istream& operator>>(std::istream &i,Funcionario &f)
 {
 	return f.scan(i);

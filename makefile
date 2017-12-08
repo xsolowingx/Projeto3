@@ -84,7 +84,7 @@ Pet_fera:	$(OBJETOS_PROGRAMA)
 	@echo "====================="
 	@echo "Ligando o alvo $@"
 	@echo "=========*-*========="
-	$(CC) $(CFLAGS) $^ -o $(BIN_DIR)/$@ 
+	$(CC) $(CFLAGS) $(LIB_DIR)/Petfera.so $^ -o $(BIN_DIR)/$@ 
 	@echo "+++ [programa $@ criado em $(BIN_DIR)] +++"
 	@echo "=========*-*========="  
 

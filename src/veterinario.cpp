@@ -1,7 +1,13 @@
+/**
+ * @since 30/11/2017
+ * @file veterinario.cpp
+ * @brief arquivo que contém as implementações da classe Veterinario
+ * @author Matheus de Jesus Leandro de Medeiros
+ * @date 08/12/17
+ */
 #include "veterinario.h"
 
-/*=====_=====*/
-
+/*=====Construtores e Destrutor=====*/
 Veterinario::Veterinario(std::string _id, std::string _nome, std::string _cpf, std::string _idade, 
 				std::string _tipo_sanguineo, std::string _fatorRH, std::string _especialidade,std::string _funcao):
 
@@ -15,8 +21,7 @@ Veterinario::Veterinario() {}
 
 Veterinario::~Veterinario() {}
 
-/*=====_=====*/
-
+/*=====Métodos de manipulação de arquivo=====*/
 std::ostream& Veterinario::print(std::ostream &o)
 {
 	o << this->id << ";" << this->nome << ";" << this->cpf << ";" << this->idade
@@ -41,9 +46,7 @@ std::istream& Veterinario::scan(std::istream &i)
 	return i;
 }
 
-
-/*=====_=====*/
-
+/*=====Sobrecarga do operador "='=====*/
 Veterinario& Veterinario::operator =(Veterinario &v)
 {
 	this->id = v.getID();
@@ -59,7 +62,6 @@ Veterinario& Veterinario::operator =(Veterinario &v)
 }
 
 /*=====Sobrecarga do operador "<<" para poder dizer qual Veterinário está cuidando daquele animal.=====*/
-
 std::ostream& operator <<(std::ostream &o,Veterinario &v)
 {
 	o << "Este animal esta sobre os cuidados do Veterinario: " << v.getID() << std::endl

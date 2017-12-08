@@ -3,7 +3,7 @@
  * @file funcionario.h
  * @brief arquivo que contém as definições da classe Funcionario
  * @author Matheus de Jesus Leandro de Medeiros
- * @date 01/12/17
+ * @date 08/12/17
  */
 #ifndef _FUNCIONARIO_H
 #define _FUNCIONARIO_H
@@ -29,6 +29,7 @@ public:
 	Funcionario(std::string _id, std::string _nome, std::string _cpf, std::string _idade, 
 				std::string _tipo_sanguineo, std::string _fatorRH, std::string _especialidade,std::string _funcao);
 	~Funcionario();
+	
 	/*=====Setters=====*/
 	void setID(std::string _id);
 	void setNome(std::string _nome);
@@ -48,7 +49,7 @@ public:
 	std::string getEspecialidade();
 	std::string getFuncao();
 
-	/*=====Métodos downcast=====*/
+	/*=====Métodos de manipulação de arquivo=====*/
 	virtual std::ostream& print(std::ostream &o) = 0;
 	virtual std::istream& scan(std::istream &i) = 0;
 

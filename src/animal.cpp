@@ -1,3 +1,10 @@
+/**
+ * @since 30/11/2017
+ * @file animal.cpp
+ * @brief arquivo que contém as implementações da classe Animal
+ * @author Matheus de Jesus Leandro de Medeiros
+ * @date 08/12/17
+ */
 #include "animal.h"
 
 /*=====Construtores e destrutor=====*/
@@ -42,6 +49,7 @@ std::string Animal::getClasse()
 	return this->classe;
 }
 
+/*=====Sobrecarga do operador "<<"=====*/
 std::ostream& operator <<(std::ostream &o,Animal &a)
 {
 	return a.print(o);
