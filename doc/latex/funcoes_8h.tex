@@ -1,0 +1,51 @@
+\hypertarget{funcoes_8h}{}\section{/home/xsolowingx/\+L\+P1/\+Programas/\+Projeto3/include/funcoes.h File Reference}
+\label{funcoes_8h}\index{/home/xsolowingx/\+L\+P1/\+Programas/\+Projeto3/include/funcoes.\+h@{/home/xsolowingx/\+L\+P1/\+Programas/\+Projeto3/include/funcoes.\+h}}
+
+
+arquivo onde contém as definições das funções auxiliares do programa Petfera  
+
+
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}classes.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{funcoes_8h_a757f27dfa9fc7a46f59900cbe55af76a}{ler\+Funcionarios} (std\+::ifstream \&ifs, std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{classFuncionario}{Funcionario} $>$$>$ funcs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+arquivo onde contém as definições das funções auxiliares do programa Petfera 
+
+\begin{DoxySince}{Since}
+30/11/2017
+\end{DoxySince}
+\begin{DoxyAuthor}{Author}
+Matheus de Jesus Leandro de Medeiros 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+08/12/17 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{funcoes_8h_a757f27dfa9fc7a46f59900cbe55af76a}\label{funcoes_8h_a757f27dfa9fc7a46f59900cbe55af76a}} 
+\index{funcoes.\+h@{funcoes.\+h}!ler\+Funcionarios@{ler\+Funcionarios}}
+\index{ler\+Funcionarios@{ler\+Funcionarios}!funcoes.\+h@{funcoes.\+h}}
+\subsubsection{\texorpdfstring{ler\+Funcionarios()}{lerFuncionarios()}}
+{\footnotesize\ttfamily bool ler\+Funcionarios (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{ifs,  }\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \hyperlink{classFuncionario}{Funcionario} $>$$>$}]{funcs }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em ifs} & um arquivo de leitura \\
+\hline
+{\em funcs} & vector de shared\+\_\+ptrs\\
+\hline
+\end{DoxyParams}
+função que lê os dados dos funcionários no arquivo funcionarios.\+csv, inicialmente ela adiciona um objeto da classe \hyperlink{classTratador}{Tratador} ou \hyperlink{classVeterinario}{Veterinario} à um vetor de Funcionários, mas a posteriori, ela iria adicionar à um \char`\"{}map\char`\"{}.
+
+\begin{DoxyReturn}{Returns}
+\{ true ou false \} 
+\end{DoxyReturn}

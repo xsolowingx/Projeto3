@@ -22,13 +22,13 @@ OBJETOS_DYN = $(OBJ_DIR)/funcionario.o $(OBJ_DIR)/veterinario.o $(OBJ_DIR)/trata
 $(OBJ_DIR)/animal.o $(OBJ_DIR)/anfibio.o $(OBJ_DIR)/mamifero.o $(OBJ_DIR)/reptil.o\
 $(OBJ_DIR)/ave.o $(OBJ_DIR)/animalSilvestre.o $(OBJ_DIR)/exotico.o $(OBJ_DIR)/nativo.o\
 $(OBJ_DIR)/aveNativa.o $(OBJ_DIR)/aveExotica.o
-OBJETOS_PROGRAMA = $(OBJ_DIR)/main.o $(OBJ_DIR)/excecoes.o
+OBJETOS_PROGRAMA = $(OBJ_DIR)/excecoes.o $(OBJ_DIR)/funcoes.o $(OBJ_DIR)/main.o
 
 #$(OBJ_DIR)/ 
 
 #Garante que os alvos desta lista nao sejam confundidos com arquivos de mesmo nome
 .PHONY: all clean distclean doxy
-all:	Petfera.so Pet_fera
+all:	Petfera.so Petfera
 
 #target para criar a biblioteca Petfera.so
 Petfera.so: $(OBJETOS_DYN)
@@ -80,7 +80,7 @@ $(OBJ_DIR)/aveExotica.o:	$(SRC_DIR)/aveExotica.cpp $(INC_DIR)/aveExotica.h
 	$(CC) -c $(DYNAMIC) $(CFLAGS) $< -o $@
 
 #target da Pet_fera
-Pet_fera:	$(OBJETOS_PROGRAMA)	
+Petfera:	$(OBJETOS_PROGRAMA)	
 	@echo "====================="
 	@echo "Ligando o alvo $@"
 	@echo "=========*-*========="
@@ -88,11 +88,17 @@ Pet_fera:	$(OBJETOS_PROGRAMA)
 	@echo "+++ [programa $@ criado em $(BIN_DIR)] +++"
 	@echo "=========*-*========="  
 
-$(OBJ_DIR)/main.o:	$(SRC_DIR)/main.cpp $(INC_DIR)/classes.h
-	$(CC) -c $(CFLAGS) $< -o $@	
+$(OBJ_DIR)/main.o:	$(SRC_DIR)/main.cpp $(INC_DIR)/classes.h 
+	$(CC) -c $(CFLAGS) $< -o $@
+	@echo "=========*-*========="	
 
 $(OBJ_DIR)/excecoes.o:	$(SRC_DIR)/excecoes.cpp $(INC_DIR)/excecoes.h
-	$(CC) -c $(CFLAGS) $< -o $@	
+	$(CC) -c $(CFLAGS) $< -o $@
+	@echo "=========*-*========="	
+
+$(OBJ_DIR)/funcoes.o:	$(SRC_DIR)/funcoes.cpp $(INC_DIR)/funcoes.h
+	$(CC) -c $(CFLAGS) $< -o $@
+	@echo "=========*-*========="	
 
 clean:
 	rm -rf $(OBJ_DIR)/*.o

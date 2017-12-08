@@ -1,0 +1,19 @@
+Devido à uma perca de tempo considerada tentando resolver erros "fantasmas",eu não consegui concluir o projeto e apesar de a biblioteca está compilando sem erros, o programa principal está com erro de compilação e para tirar dúvidas,tem o diretório "teste/"
+com o main "copiado" e compilado "manualmente" dentro desse diretório, e ele não deu nenhum erro de compilação, ele está "apenas"com falha de segmentação caso eu queira acessar o elemento do vector;
+eu usei vector a princípio, mas iria mudar para map depois....
+
+o programa Petfera tinha o intuito de simular um "sistema" de cadastro e gerenciamento de dados de uma clínica veterinária.
+
+o programa iria utilizar os arquivos "animais.csv" e "funcionarios.csv" localizados no diretório "csv/" para salvar e ler dados dos animais e funcionários respectivamente.
+
+a biblioteca dinâmica "Petfera.so" localizada no diretório "lib/", contém todas as definições e implementações necessárias para os "objetos" da Petfera.
+
+o programa Petfera, usa os headers "excecoes.h" e "funcoes.h", ao qual contém as classes das possíveis exceções que poderiam acontecer e funções auxiliares ao programa principal respectivamente.
+
+**Dificuldades encontradas**:
+
+preferi a princípio, usar vector,pois mesmo lendo sobre map no cppreference, ainda não entendo muito bem, mas mudaria para map num futuro próximo...
+
+Manipulação de arquivos, eu tenho um pouco de dificuldade e demorei um pouco a resolver um problema na função "lerFuncionarios", pois a princípio, eu estava passando sem ser por referência,e o operador() sem ser por referência, ele é deletado na classe.
+
+O diagrama das classes estava um pouco confuso pra mim, então também perdi um pouco de tempo tentando entender a relação entre as classes da Petfera.

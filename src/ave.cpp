@@ -1,6 +1,6 @@
 /**
  * @since 30/11/2017
- * @file funcionario.cpp
+ * @file ave.cpp
  * @brief arquivo que contém as implementações da classe Ave
  * @author Matheus de Jesus Leandro de Medeiros
  * @date 08/12/17
